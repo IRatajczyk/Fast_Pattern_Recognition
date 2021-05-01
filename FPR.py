@@ -37,7 +37,6 @@ def FastPatternRecognition(image: ndarray, pattern: ndarray) -> ndarray:
     :param pattern: numpy.ndarray: Monochromatic image with the very pattern looked for, it is highly recommended to pass it without redundand borders.
     :return: numpy.ndarray: Basically processed image, suitable for future processing.
     """
-    print('XYYYX')
     image_Fourier_domain = FT2DShifted(image)
     pattern_rotated = rot90(pattern, 2)
     pattern_padded = copyMakeBorder(pattern_rotated, 0, image.shape[0] - pattern.shape[0], 0,
@@ -71,7 +70,7 @@ def Comparison(image: ndarray, pattern: ndarray, Recognised_pattern_img: Optiona
     ax1.set_yticks([])
 
     ax2.imshow(magnitude(patter_recognition[:, :, 0], patter_recognition[:, :, 1]))
-    ax2.set_title('Final img')
+    ax2.set_title('Final img', cmap='gray')
     ax2.set_xticks([])
     ax2.set_yticks([])
 
